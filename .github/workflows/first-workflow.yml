@@ -1,28 +1,29 @@
 name: first workflow
 on:
-  workflow_dispatch:
-    inputs:
-      versionName:
-        required: true
-        description: "this is version name for github workflow"
+  # workflow_dispatch:
+  #   inputs:
+  #     versionName:
+  #       required: true
+  #       description: "this is version name for github workflow"
   # repository_dispatch:
   #   types: [test]
-  push:
-    branches:
-      - "main"
-      - "feat/**"
-    paths:
-      - "app/**"
-  pull_request:
-    branches-ignore:
-      - "feature/**"
-    types: [opened, closed]
+   push:
+  #   branches:
+  #     - "main"
+  #     - "feat/**"
+  #   paths:
+  #     - "app/**"
+  # pull_request:
+  #   branches-ignore:
+  #     - "feature/**"
+  #   types: [opened, closed]
 jobs:
   first-workflow-job:
     name: first job
     runs-on: ubuntu-latest
     steps:
       - name: before checkout action
+        if: github.ref == 'refs/head/feature'
         run: ls
         shell: bash
 

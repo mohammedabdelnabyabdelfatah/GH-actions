@@ -8,4 +8,4 @@ jobs:
   cron-workflow:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "cron workflow"
+      - run: echo "cron workflow 2 "

@@ -7,13 +7,16 @@ on:
         description: "this is version name for github workflow"
   # repository_dispatch:
   #   types: [test]
-  # push:
-  #   branches:
-  #     - "main"
-  # pull_request:
-  #   branches:
-  #     - "feature"
-  #   types: [opened, closed]
+  push:
+    branches:
+      - "main"
+      - "feat/**"
+    paths:
+      - "app/**"
+  pull_request:
+    branches-ignore:
+      - "feature/**"
+    types: [opened, closed]
 jobs:
   first-workflow-job:
     name: first job
